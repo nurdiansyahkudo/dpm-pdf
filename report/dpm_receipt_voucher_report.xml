@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <report 
+          id="dpm_receipt_voucher_report"
+          model="account.move"
+          string="Print Receipt Voucher"
+          report_type="qweb-pdf"
+          name="custom_report.dpm_receipt_voucher_template"
+          file="custom_report.dpm_receipt_voucher_template"
+          print_report_name="'DPM Receipt Voucher - %s' % (object.name)"
+        />
+
+        <record id="action_report_receipt_voucher_dpm" model="ir.actions.report">
+            <field name="name">Receipt Voucher</field>
+            <field name="model">account.move</field>
+            <field name="report_name">custom_report.dpm_receipt_voucher_template</field>
+            <field name="report_file">custom_report.dpm_receipt_voucher_template</field>
+            <field name="print_report_name">(object.get_receipt_voucher_print_report_name())</field>
+            <field name="attachment"/>
+            <field name="report_type">qweb-pdf</field>
+            <field name="binding_model_id" ref="account.model_account_move"/>
+            <field name="binding_type">report</field>
+            <field name="groups_id" eval="[(4, ref('account.group_account_invoice')), (4, ref('account.group_account_readonly'))]"/>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Template QWeb -->
+        <template id="dpm_purchase_order_template">
+            <t t-call="web.external_layout">
+                <t t-foreach="docs" t-as="o">
+                    <!-- Language and Page Information in Header -->
+                    <div class="row">
+                        <div class="text-center">
+                            <span style="font-weight: bold; font-size: 125%;"><strong>PURCHASE ORDER</strong></span>
+                        </div>
+                    </div>
+                    <main>
+                        <div class="page" style="padding: 10px;">
+                            <!-- HEADER -->
+                            <div class="row" style="margin-bottom: 5px;">
+                                <div class="col-8 text-left">
+                                    <p style="font-weight: bold; margin-bottom: 2px;">
+                                        <strong>From:</strong>
+                                        <p style="font-weight: bold; margin-bottom: 2px; margin-left: 20px;"><span t-esc="o.partner_id.name or ''" style="font-weight: bold;"/></p>
+                                        <p style="font-weight: bold; margin-bottom: 2px; margin-left: 20px;">
+                                            <span t-esc="o.partner_id.street or ''" style="font-weight: bold;"/><br/>
+                                            <span t-esc="o.partner_id.street2 or ''" style="font-weight: bold;"/><br/>
+                                            <span t-esc="o.partner_id.city or ''" style="font-weight: bold;"/><span>, </span>
+                                            <span t-esc="o.partner_id.country_id.name or ''" style="font-weight: bold;"/>
+                                        </p>
+                                    </p>
+                                    <p style="font-weight: bold; margin-bottom: 2px;">
+                                        <strong>Deliver To:</strong>
+                                        <p style="font-weight: bold; margin-bottom: 2px; margin-left: 20px;">
+                                            <span t-esc="o.company_id.street or ''" style="font-weight: bold;"/><br/>
+                                            <span t-esc="o.company_id.street2 or ''" style="font-weight: bold;"/><br/>
+                                            <span t-esc="o.company_id.city or ''" style="font-weight: bold;"/><span>, </span>
+                                            <span t-esc="o.company_id.country_id.name or ''" style="font-weight: bold;"/>
+                                        </p>
+                                    </p>
+                                </div>
+                                <div class="col-4 text-right">
+                                    <table>
+                                        <tr>
+                                            <td style="font-weight: bold;">PO Date</td>
+                                            <td style="font-weight: bold; padding-left: 1rem;"> : </td>
+                                            <td style="font-weight: bold; padding-left: 1rem;"><span t-esc="o.date_approve.strftime('%d.%m.%y')" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="font-weight: bold;">PO No</td>
+                                            <td style="font-weight: bold; padding-left: 1rem;"> : </td>
+                                            <td style="font-weight: bold; padding-left: 1rem;"><span t-esc="o.name" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="font-weight: bold;">Salesman</td>
+                                            <td style="font-weight: bold; padding-left: 1rem;"> : </td>
+                                            <td style="font-weight: bold; padding-left: 1rem;"><span t-esc="o.user_id.name or '-'" /></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <!-- <div class="row" style="margin-bottom: 5px;">
+                                <div class="col-12">
+                                    <p style="font-weight: bold; margin-bottom: 2px;"><strong>Remarks:</strong> 
+                                        <span t-esc="o.notes or ''" style="font-weight: bold;"/>
+                                    </p>
+                                </div>
+                            </div> -->
+                            <!-- TABLE -->
+                            <table class="table table-sm table-bordered" style="margin-bottom: 5px;">
+                                <thead>
+                                    <tr>
+                                        <th style="font-weight: bold;">Item Code</th>
+                                        <th style="font-weight: bold;">Brand - Model</th>
+                                        <th style="font-weight: bold;">Color</th>
+                                        <th style="font-weight: bold;">Size</th>
+                                        <th style="font-weight: bold;">Qty</th>
+                                        <th style="font-weight: bold;">Check</th>
+                                        <th style="font-weight: bold;">Remarks</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Initialize a counter -->
+                                    <t t-set="counter" t-value="0"/>
+                                    <t t-foreach="o.order_line" t-as="line">
+                                        <!-- Increment the counter -->
+                                        <t t-set="counter" t-value="counter + 1"/>
+                                        <tr>
+                                            <!-- Item Code -->
+                                            <td class="text-center" style="font-weight: bold;"><span t-esc="line.product_id.default_code or 'No Code'" style="font-weight: bold;"/></td>
+                                            <!-- Brand - Model -->
+                                            <td class="text-center" style="font-weight: bold;"><span t-esc="line.product_id.name or 'No Brand - Model'" style="font-weight: bold;"/></td>
+                                            <!-- Color -->
+                                            <td class="text-center" style="font-weight: bold;">
+                                                <span t-esc="', '.join(line.product_id.product_tmpl_id.attribute_line_ids.filtered(lambda x: x.attribute_id.name == 'Color').value_ids.mapped('name')) or 'No Color'" style="font-weight: bold;"/>
+                                            </td>
+                                            <!-- Size -->
+                                            <td class="text-center" style="font-weight: bold;">
+                                                <span t-esc="', '.join(line.product_id.product_tmpl_id.attribute_line_ids.filtered(lambda x: x.attribute_id.name == 'Size').value_ids.mapped('name')) or 'No Size'" style="font-weight: bold;"/>
+                                            </td>
+                                            <!-- Qty -->
+                                            <td class="text-center" style="font-weight: bold;"><span t-esc="line.product_qty" style="font-weight: bold;"/></td>
+                                            <td class="text-center" style="font-weight: bold;"></td>
+                                            <td class="text-center" style="font-weight: bold;"><span t-esc="o.notes or ''" style="font-weight: bold;"/></td>
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
+                            <!-- FOOTER -->
+                            <div class="row mt-2" style="margin-bottom: 5px; text-align: right; margin-right: 20px;">
+                                <div class="col-6 text-left"></div>
+                                <div class="col-6 text-right">
+                                    <p style="margin-bottom: 2px;"><strong>Total Qty Ordered : </strong> 
+                                        <span t-esc="sum(int(line.product_qty) for line in o.order_line)" style="font-weight: bold;"/>
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- Footer yang akan muncul di setiap halaman -->
+                            <footer>
+                                <div style="position: relative; width: 100%; text-align: right; margin-top: 130px; margin-bottom: 10px; margin-right: 20px;">
+                                    <strong>CHECKED BY : </strong>
+                                    <span style="border-bottom: 1px solid black; width: 150px; display: inline-block; margin-right: 20px;"></span>
+                                    <strong>ACCEPTED BY : </strong>
+                                    <span style="border-bottom: 1px solid black; width: 150px; display: inline-block;"></span>
+                                </div>
+                            </footer>
+                        </div>
+                    </main>
+                </t>
+            </t>
+        </template>
+        <template id="report_my_purchase_order">
+            <t t-call="web.html_container">
+                <t t-call="dpm_purchase_order_template" t-lang="lang"/>
+            </t>
+        </template>
+    </data>
+</odoo>

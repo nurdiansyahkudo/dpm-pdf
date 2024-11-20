@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Report definition -->
+        <report
+            id="dpm_good_receipt_report"
+            model="stock.picking"
+            string="DPM Good Receipt"
+            report_type="qweb-pdf"
+            name="custom_report.dpm_good_receipt_template"
+            file="custom_report.dpm_good_receipt_template"
+            print_report_name="'DPM Good Receipt - %s' % (object.name)"
+        />
+
+        <record id="action_report_good_receipt_dpm" model="ir.actions.report">
+            <field name="name">Print Good Receipt</field>
+            <field name="model">stock.picking</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">custom_report.dpm_good_receipt_template</field>
+            <field name="report_file">custom_report.dpm_good_receipt_template</field>
+            <field name="print_report_name">'DPM Good Receipt - ' + (object and object.name or '')</field>
+            <field name="attachment"/>
+            <field name="binding_model_id" ref="stock.model_stock_picking"/>
+            <field name="binding_type">report</field>
+        </record>
+
+    </data>
+</odoo>
