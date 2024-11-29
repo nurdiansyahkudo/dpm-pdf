@@ -51,7 +51,7 @@
                                         <tr>
                                             <td style="font-weight: bold;">Salesman</td>
                                             <td style="font-weight: bold; padding-left: 1rem;"> : </td>
-                                            <td style="font-weight: bold; padding-left: 1rem;"><span t-esc="o.user_id.name or '-'" /></td>
+                                            <td style="font-weight: bold; padding-left: 1rem;"><span t-esc="o.user_id.name or '-No Sales'" /></td>
                                         </tr>
                                     </table>
                                 </div>
