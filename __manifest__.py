@@ -2,7 +2,7 @@
 {
     'name': "DPM Custom Report ",
     'summary': '',
-    'author': 'Rizky Abdi',
+    'author': '',
     'category': 'Uncategorized',
     'version': '1.0',
     'depends': ['base', 'purchase', 'sale', 'account', 'stock'],

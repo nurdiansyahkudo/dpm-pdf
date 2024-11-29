@@ -2,7 +2,7 @@
 <odoo>
     <data>
         <!-- Template QWeb -->
-        <template id="dpm_sale_order_template">
+        <template id="dpm_sales_order_template">
             <t t-call="web.external_layout">
                 <t t-foreach="docs" t-as="o">
                     <!-- Language and Page Information in Header -->
