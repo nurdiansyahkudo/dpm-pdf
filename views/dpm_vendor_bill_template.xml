@@ -17,21 +17,21 @@
                             <!-- HEADER -->
                             <div class="row" style="margin-bottom: 5px;">
                                 <div class="col-8 text-left">
-                                    <table>
+                                    <table style="border: none;">
                                         <tr>
-                                            <td style="font-weight: bold;">No</td>
-                                            <td style="font-weight: bold; padding-left: 1rem;">:</td>
-                                            <td style="font-weight: bold; padding-left: 1rem;"><span t-esc="o.name" /></td>
+                                            <td style="font-weight: bold; padding-left: 0.5rem; border: none;">No</td>
+                                            <td style="font-weight: bold; padding-left: 1rem; border: none;"> : </td>
+                                            <td style="font-weight: bold; padding-left: 1rem; padding-right: 1rem; border: none;"><span t-esc="o.name" /></td>
                                         </tr>
                                         <tr>
-                                            <td style="font-weight: bold;">Date</td>
-                                            <td style="font-weight: bold; padding-left: 1rem;">:</td>
-                                            <td style="font-weight: bold; padding-left: 1rem;"><span t-esc="o.invoice_date.strftime('%d.%m.%y')" /></td>
+                                            <td style="font-weight: bold; padding-left: 0.5rem; border: none;">Date</td>
+                                            <td style="font-weight: bold; padding-left: 1rem; border: none;"> : </td>
+                                            <td style="font-weight: bold; padding-left: 1rem; padding-right: 1rem; border: none;"><span t-esc="o.invoice_date.strftime('%d.%m.%y')" /></td>
                                         </tr>
                                         <tr>
-                                            <td style="font-weight: bold;">Due Date</td>
-                                            <td style="font-weight: bold; padding-left: 1rem;">:</td>
-                                            <td style="font-weight: bold; padding-left: 1rem;"><span t-esc="o.invoice_date_due.strftime('%d.%m.%y') or ''" /></td>
+                                            <td style="font-weight: bold; padding-left: 0.5rem; border: none;">Due Date</td>
+                                            <td style="font-weight: bold; padding-left: 1rem; border: none;"> : </td>
+                                            <td style="font-weight: bold; padding-left: 1rem; padding-right: 1rem; border: none;"><span t-esc="o.invoice_date_due.strftime('%d.%m.%y') or ''" /></td>
                                         </tr>
                                     </table>
                                 </div>

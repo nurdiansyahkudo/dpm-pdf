@@ -37,21 +37,21 @@
                                     </p>
                                 </div>
                                 <div class="col-4 text-right">
-                                    <table>
+                                    <table style="border: none;">
                                         <tr>
-                                            <td style="font-weight: bold;">PO Date</td>
-                                            <td style="font-weight: bold; padding-left: 1rem;"> : </td>
-                                            <td style="font-weight: bold; padding-left: 1rem;"><span t-esc="o.date_approve.strftime('%d.%m.%y')" /></td>
+                                            <td style="font-weight: bold; padding-left: 0.5rem; border: none;">PO Date</td>
+                                            <td style="font-weight: bold; padding-left: 1rem; border: none;"> : </td>
+                                            <td style="font-weight: bold; padding-left: 1rem; padding-right: 1rem; border: none;"><span t-esc="o.date_approve.strftime('%d.%m.%y')" /></td>
                                         </tr>
                                         <tr>
-                                            <td style="font-weight: bold;">PO No</td>
-                                            <td style="font-weight: bold; padding-left: 1rem;"> : </td>
-                                            <td style="font-weight: bold; padding-left: 1rem;"><span t-esc="o.name" /></td>
+                                            <td style="font-weight: bold; padding-left: 0.5rem; border: none;">PO No</td>
+                                            <td style="font-weight: bold; padding-left: 1rem; border: none;"> : </td>
+                                            <td style="font-weight: bold; padding-left: 1rem; padding-right: 1rem; border: none;"><span t-esc="o.name" /></td>
                                         </tr>
                                         <tr>
-                                            <td style="font-weight: bold;">Salesman</td>
-                                            <td style="font-weight: bold; padding-left: 1rem;"> : </td>
-                                            <td style="font-weight: bold; padding-left: 1rem;"><span t-esc="o.user_id.name or '-No Sales'" /></td>
+                                            <td style="font-weight: bold; padding-left: 0.5rem; border: none;">Salesman</td>
+                                            <td style="font-weight: bold; padding-left: 1rem; border: none;"> : </td>
+                                            <td style="font-weight: bold; padding-left: 1rem; padding-right: 1rem; border: none;"><span t-esc="o.user_id.name or '-No Sales'" /></td>
                                         </tr>
                                     </table>
                                 </div>

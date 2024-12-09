@@ -17,29 +17,29 @@
                             <!-- Header Section -->
                             <div class="row" style="margin-bottom: 10px;">
                                 <div class="col-8 text-left">
-                                    <table>
+                                    <table style="border: none;">
                                         <tr>
-                                            <td style="font-weight: bold;">Printed On</td> <!-- Posting Date (Journal) -->
-                                            <td style="font-weight: bold; padding-left: 1rem;"> : </td>
+                                            <td style="font-weight: bold; padding-left: 0.5rem; border: none;">Printed On</td> <!-- Posting Date (Journal) -->
+                                            <td style="font-weight: bold; padding-left: 1rem; border: none;"> : </td>
                                             <!-- <td style="font-weight: bold; padding-left: 1rem;"><span t-esc="o.custom_invoice_date.strftime('%d.%m.%y')" /></td> -->
-                                            <td style="font-weight: bold; padding-left: 1rem;"><span t-esc="o.date.strftime('%d.%m.%y')" /></td>
+                                            <td style="font-weight: bold; padding-left: 1rem; padding-right: 1rem; border: none;"><span t-esc="o.date.strftime('%d.%m.%y')" /></td>
                                         </tr>
                                     </table>
                                 </div>
                                 <div class="col-4 text-right">
-                                    <table>
+                                    <table style="border: none;">
                                         <tr>
-                                            <td style="font-weight: bold;">Posted On</td> <!-- Invoice Date -->
-                                            <td style="font-weight: bold; padding-left: 1rem;"> : </td>
-                                            <td style="font-weight: bold; padding-left: 1rem;">
+                                            <td style="font-weight: bold; padding-left: 0.5rem; border: none;">Posted On</td> <!-- Invoice Date -->
+                                            <td style="font-weight: bold; padding-left: 1rem; border: none;"> : </td>
+                                            <td style="font-weight: bold; padding-left: 1rem; padding-right: 1rem; border: none;">
                                                 <span t-if="o.custom_invoice_date" t-esc="o.custom_invoice_date.strftime('%d.%m.%y')" />
                                                 <span t-if="not o.custom_invoice_date">-</span>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td style="font-weight: bold;">No.</td>
-                                            <td style="font-weight: bold; padding-left: 1rem;"> : </td>
-                                            <td style="font-weight: bold; padding-left: 1rem;"><span t-esc="o.name" /></td>
+                                            <td style="font-weight: bold; padding-left: 0.5rem; border: none;">No.</td>
+                                            <td style="font-weight: bold; padding-left: 1rem; border: none;"> : </td>
+                                            <td style="font-weight: bold; padding-left: 1rem; padding-right: 1rem; border: none;"><span t-esc="o.name" /></td>
                                         </tr>
                                     </table>
                                 </div>
