@@ -26,7 +26,7 @@
                                         <tr>
                                             <td style="font-weight: bold; padding-left: 0.5rem; border: none;">Time</td>
                                             <td style="font-weight: bold; padding-left: 1rem; border: none;"> : </td>
-                                            <td style="font-weight: bold; padding-left: 1rem; padding-right: 1rem; border: none;"><span t-esc="o.scheduled_date.strftime('%d.%m.%y')" /></td>
+                                            <td style="font-weight: bold; padding-left: 1rem; padding-right: 1rem; border: none;"><span t-esc="o.scheduled_date.strftime('%H:%M')" /></td>
                                         </tr>
                                         <tr>
                                             <td style="font-weight: bold; padding-left: 0.5rem; border: none;">Transfer No</td>
