@@ -21,6 +21,8 @@
         'views/dpm_payment_voucher_template.xml',
         'report/dpm_receipt_voucher_report.xml',
         'views/dpm_receipt_voucher_template.xml',
+        'report/dpm_internal_transfer_report.xml',
+        'views/dpm_internal_transfer_template.xml',
         'views/voucher_view.xml',
     ],
     'installable': True,
