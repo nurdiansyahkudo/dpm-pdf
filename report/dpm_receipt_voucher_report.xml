@@ -7,16 +7,16 @@
           model="account.move"
           string="Print Receipt Voucher"
           report_type="qweb-pdf"
-          name="custom_pdf.dpm_receipt_voucher_template"
-          file="custom_pdf.dpm_receipt_voucher_template"
+          name="custom_report.dpm_receipt_voucher_template"
+          file="custom_report.dpm_receipt_voucher_template"
           print_report_name="'DPM Receipt Voucher - %s' % (object.name)"
         />
 
         <record id="action_report_receipt_voucher_dpm" model="ir.actions.report">
             <field name="name">Receipt Voucher</field>
             <field name="model">account.move</field>
-            <field name="report_name">custom_pdf.dpm_receipt_voucher_template</field>
-            <field name="report_file">custom_pdf.dpm_receipt_voucher_template</field>
+            <field name="report_name">custom_report.dpm_receipt_voucher_template</field>
+            <field name="report_file">custom_report.dpm_receipt_voucher_template</field>
             <field name="print_report_name">(object.get_receipt_voucher_print_report_name())</field>
             <field name="attachment"/>
             <field name="report_type">qweb-pdf</field>
