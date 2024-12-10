@@ -99,7 +99,7 @@
                                             <!-- Qty -->
                                             <td class="text-center" style="font-weight: bold;"><span t-esc="line.product_qty" style="font-weight: bold;"/></td>
                                             <td class="text-center" style="font-weight: bold;"></td>
-                                            <td class="text-center" style="font-weight: bold;"><span t-esc="o.notes or ''" style="font-weight: bold;"/></td>
+                                            <td class="text-center" style="font-weight: bold;"></td>
                                         </tr>
                                     </t>
                                 </tbody>
