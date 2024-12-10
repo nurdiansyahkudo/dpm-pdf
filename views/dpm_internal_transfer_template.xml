@@ -115,14 +115,14 @@
                                 </div>
                             </div>
                             <!-- Footer yang akan muncul di setiap halaman -->
-                            <footer>
+                            <!-- <footer>
                               <div style="position: relative; width: 100%; text-align: right; margin-top: 130px; margin-bottom: 10px; margin-right: 20px;">
                                 <strong>Signature</strong>
                                 <span style="border-bottom: 1px solid black; width: 150px; display: inline-block; margin-right: 20px;"></span>
                                 <strong>Date</strong>
                                 <span style="border-bottom: 1px solid black; width: 150px; display: inline-block;"></span>
                               </div>
-                            </footer>
+                            </footer> -->
                         </div>          
                     </main>
                 </t>
