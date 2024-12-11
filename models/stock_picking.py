@@ -14,15 +14,15 @@ class Picking(models.Model):
     def _get_print_report_name(self):
         return 'DPM Delivery Order - %s' % (self.name)
     
-class StockMove(models.Model):
-    _inherit = "stock.move"
+# class StockMove(models.Model):
+#     _inherit = "stock.move"
 
-    line_no = fields.Integer(string="No.", compute="_compute_line_no", store=True)
+#     line_no = fields.Integer(string="No.", compute="_compute_line_no", store=True)
 
-    @api.depends('picking_id.move_ids')
-    def _compute_line_no(self):
-        for move in self:
-            if move.picking_id:  # Pastikan move memiliki picking_id
-                move_list = move.picking_id.move_ids.sorted('id')  # Sortir untuk konsistensi
-                for index, line in enumerate(move_list, start=1):
-                    line.line_no = index
+#     @api.depends('picking_id.move_ids')
+#     def _compute_line_no(self):
+#         for move in self:
+#             if move.picking_id:  # Pastikan move memiliki picking_id
+#                 move_list = move.picking_id.move_ids.sorted('id')  # Sortir untuk konsistensi
+#                 for index, line in enumerate(move_list, start=1):
+#                     line.line_no = index
