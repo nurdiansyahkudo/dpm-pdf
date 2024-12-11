@@ -8,7 +8,7 @@
                 <field name="line_no"/>
             </xpath>
             
-            <xpath expr="//field[@name='notes']" position="before">
+            <xpath expr="//field[@name='note']" position="before">
                 <field name="total_qty"/>
             </xpath>
             <xpath expr="//field[@name='total_qty']" position="after">
