@@ -40,7 +40,7 @@
                                                 <t t-if="o.employee_id">
                                                     <t t-foreach="o.employee_id" t-as="employee">
                                                         <t t-esc="employee.initial"/> 
-                                                        <t t-if="not loop.last"> | </t>
+                                                        <t t-if="index < len(o.employee_id) - 1"> | </t>
                                                     </t>
                                                 </t>
                                                 <t t-if="not o.employee_id"> - </t>
