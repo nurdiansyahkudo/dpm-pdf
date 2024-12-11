@@ -3,20 +3,20 @@
 
 
 # class CustomReport(http.Controller):
-#     @http.route('/custom_report/custom_report', auth='public')
+#     @http.route('/custom_pdf/custom_pdf', auth='public')
 #     def index(self, **kw):
 #         return "Hello, world"
 
-#     @http.route('/custom_report/custom_report/objects', auth='public')
+#     @http.route('/custom_pdf/custom_pdf/objects', auth='public')
 #     def list(self, **kw):
-#         return http.request.render('custom_report.listing', {
-#             'root': '/custom_report/custom_report',
-#             'objects': http.request.env['custom_report.custom_report'].search([]),
+#         return http.request.render('custom_pdf.listing', {
+#             'root': '/custom_pdf/custom_pdf',
+#             'objects': http.request.env['custom_pdf.custom_pdf'].search([]),
 #         })
 
-#     @http.route('/custom_report/custom_report/objects/<model("custom_report.custom_report"):obj>', auth='public')
+#     @http.route('/custom_pdf/custom_pdf/objects/<model("custom_pdf.custom_pdf"):obj>', auth='public')
 #     def object(self, obj, **kw):
-#         return http.request.render('custom_report.object', {
+#         return http.request.render('custom_pdf.object', {
 #             'object': obj
 #         })
 
