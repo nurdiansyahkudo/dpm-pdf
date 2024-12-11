@@ -14,14 +14,14 @@ class Picking(models.Model):
     def _get_print_report_name(self):
         return 'DPM Delivery Order - %s' % (self.name)
     
-class StockMoveLine(models.Model):
-    _inherit = "stock.move.line"
+class StockMove(models.Model):
+    _inherit = "stock.move"
 
     line_no = fields.Integer(string="No.", compute="_compute_line_no", store=True)
 
-    @api.depends('move_id')
+    @api.depends('move_line_ids')
     def _compute_line_no(self):
-        for picking in self.mapped('move_id'):
+        for picking in self.mapped('move_line_ids'):
             move_lines = picking.move_ids_without_package.mapped('picking_id')
             for index, line in enumerate(move_lines, start=1):
                 line.line_no = index
