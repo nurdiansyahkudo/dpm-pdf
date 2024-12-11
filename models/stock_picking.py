@@ -15,7 +15,7 @@ class Picking(models.Model):
           total = sum(line.quantity for line in move.move_line_ids)
           move.total_qty = total
 
-  @api.depends('move_id')
+  @api.depends('move_line_ids')
   def _compute_line_no(self):
       for move in self.mapped('move_id'):
           for index, line in enumerate(move.move_id, start=1):
