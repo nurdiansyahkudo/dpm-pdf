@@ -14,8 +14,8 @@ class Picking(models.Model):
     def _get_print_report_name(self):
         return 'DPM Delivery Order - %s' % (self.name)
     
-class StockMove(models.Model):
-    _inherit = "stock.move"
+class StockMoveLine(models.Model):
+    _inherit = "stock.move.line"
 
     line_no = fields.Integer(string="No.", compute="_compute_line_no", store=True)
 
