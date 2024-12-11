@@ -36,7 +36,7 @@
                                         <tr>
                                             <td style="font-weight: bold; padding-left: 0.5rem; border: none;">Salesman</td>
                                             <td style="font-weight: bold; padding-left: 1rem; border: none;"> : </td>
-                                            <td style="font-weight: bold; padding-left: 1rem; padding-right: 1rem; border: none;"><span t-esc="o.employee_id.name or '-'" /></td>
+                                            <td style="font-weight: bold; padding-left: 1rem; padding-right: 1rem; border: none;"> - </td>
                                         </tr>
                                     </table>
                                 </div>
