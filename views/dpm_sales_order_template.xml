@@ -35,6 +35,7 @@
                                                 <!-- <span t-esc="o.employee_id.initial or '-'" /> -->
                                                 <t t-foreach="o.employee_id" t-as="employee"> 
                                                     <span t-esc="employee.initial" />
+                                                    <t t-if="not loop.last"> | </t>
                                                 </t>
                                             </td>
                                         </tr>
