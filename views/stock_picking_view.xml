@@ -8,7 +8,7 @@
                 <field name="line_no"/>
             </xpath>
             
-            <xpath expr="//field[@name='invoice_line_ids']" position="after">
+            <xpath expr="//field[@name='move_ids_without_package']" position="after">
                 <group col="12">
                     <group colspan="8">
                         <field name="total_qty"/>
