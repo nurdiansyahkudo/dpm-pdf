@@ -24,6 +24,7 @@
         'report/dpm_internal_transfer_report.xml',
         'views/dpm_internal_transfer_template.xml',
         'views/voucher_view.xml',
+        'views/purchase_order_view.xml',
     ],
     'installable': True,
     'application': False,
