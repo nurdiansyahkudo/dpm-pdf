@@ -8,5 +8,7 @@ class StockMove(models.Model):
     @api.depends('move_line_ids')
     def _compute_line_no(self):
         for move in self:
-            for index, line in enumerate(move.move_line_ids, start=1):
+            index = 1
+            for line in move.move_line_ids:
                 line.line_no = index
+                index += 1
