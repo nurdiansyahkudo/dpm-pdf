@@ -14,8 +14,8 @@ class Picking(models.Model):
           total = sum(line.quantity for line in move.move_ids_without_package)
           move.total_qty = total
 
-class StockMove(models.Model):
-  _inherit = "stock.move"
+class StockMoveLine(models.Model):
+  _inherit = "stock.move.line"
 
   line_no = fields.Integer(string="No.", compute="_compute_line_no", store=True)
   
