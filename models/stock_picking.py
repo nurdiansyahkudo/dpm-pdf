@@ -17,6 +17,6 @@ class Picking(models.Model):
 
   @api.depends('move_line_ids')
   def _compute_line_no(self):
-      for move in self.mapped('move_id'):
+      for move in self.mapped('move_line_ids'):
           for index, line in enumerate(move.move_id, start=1):
               line.line_no = index
