@@ -34,8 +34,12 @@
                                             <td style="font-weight: bold; padding-left: 1rem; padding-right: 1rem; border: none;">
                                                 <!-- <span t-esc="o.employee_id.initial or '-'" /> -->
                                                 <t t-foreach="o.employee_id" t-as="employee"> 
-                                                    <span t-esc="employee.initial" />
-                                                    <t t-if="not loop.last"> | </t>
+                                                    <t t-if="employee != o.employee_id[-1]">
+                                                        <span t-esc="employee.initial" /> |
+                                                    </t>
+                                                    <t t-else="">
+                                                        <span t-esc="employee.initial" />
+                                                    </t>
                                                 </t>
                                             </td>
                                         </tr>
