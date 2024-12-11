@@ -36,7 +36,15 @@
                                         <tr>
                                             <td style="font-weight: bold; padding-left: 0.5rem; border: none;">Salesman</td>
                                             <td style="font-weight: bold; padding-left: 1rem; border: none;"> : </td>
-                                            <td style="font-weight: bold; padding-left: 1rem; padding-right: 1rem; border: none;"><span t-esc="o.employee_id.name or '-'" /></td>
+                                            <td style="font-weight: bold; padding-left: 1rem; padding-right: 1rem; border: none;">
+                                                <t t-if="o.employee_id">
+                                                    <t t-foreach="o.employee_id" t-as="employee">
+                                                        <t t-esc="employee.initial"/> 
+                                                        <t t-if="not loop.last"> | </t>
+                                                    </t>
+                                                </t>
+                                                <t t-if="not o.employee_id"> - </t>
+                                            </td>
                                         </tr>
                                     </table>
                                 </div>

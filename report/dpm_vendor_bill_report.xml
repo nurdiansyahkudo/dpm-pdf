@@ -6,16 +6,16 @@
             model="account.move"
             string="DPM Vendor Bill"
             report_type="qweb-pdf"
-            name="custom_pdf.dpm_vendor_bill_template"
-            file="custom_pdf.dpm_vendor_bill_template"
+            name="custom_report.dpm_vendor_bill_template"
+            file="custom_report.dpm_vendor_bill_template"
             print_report_name="'DPM Supplier Invoice - %s' % (object.name)"
         />
 
         <record id="action_report_vendor_bill_dpm" model="ir.actions.report">
             <field name="name">Supplier Invoice</field>
             <field name="model">account.move</field>
-            <field name="report_name">custom_pdf.dpm_vendor_bill_template</field>
-            <field name="report_file">custom_pdf.dpm_vendor_bill_template</field>
+            <field name="report_name">custom_report.dpm_vendor_bill_template</field>
+            <field name="report_file">custom_report.dpm_vendor_bill_template</field>
             <field name="print_report_name">(object.get_print_report_name())</field>
             <field name="attachment"/>
             <field name="report_type">qweb-pdf</field>
