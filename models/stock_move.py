@@ -3,8 +3,8 @@ from odoo import models, fields, api
 class StockMove(models.Model):
     _inherit = "stock.move"
 
-    line_no = fields.Integer(string="No.", compute="_compute_line_no", store=True)
-
+    move_line_ids = fields.One2many('stock.move.line', 'move_id', string="Move Lines")
+    
     @api.depends('move_line_ids')
     def _compute_line_no(self):
         for move in self:
