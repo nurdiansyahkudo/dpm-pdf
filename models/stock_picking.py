@@ -22,6 +22,6 @@ class StockMoveLine(models.Model):
     @api.depends('picking_id')
     def _compute_line_no(self):
         for picking in self.mapped('picking_id'):
-            move_lines = picking.move_ids_without_package.mapped('move_line_ids')
+            move_lines = picking.move_ids_without_package.mapped('move_id')
             for index, line in enumerate(move_lines, start=1):
                 line.line_no = index
