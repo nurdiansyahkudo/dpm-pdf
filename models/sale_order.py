@@ -9,10 +9,10 @@ class SaleOrder(models.Model):
   def get_print_report_name(self):
       return 'DPM Sales Order - %s' % (self.name)
   
-  @api.depends('order_line.product_uom_qty')
+  @api.depends('order_line.qty_to_invoice')
   def _compute_total_qty(self):
       for order in self:
-          total_qty = sum(line.product_uom_qty for line in order.order_line)
+          total_qty = sum(line.qty_to_invoice for line in order.order_line)
           order.total_qty = total_qty
 
   @api.depends('order_line.qty_delivered')
