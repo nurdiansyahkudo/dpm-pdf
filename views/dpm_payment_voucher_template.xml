@@ -16,7 +16,7 @@
                         <div class="page" style="padding: 10px;">
                             <!-- Header Section -->
                             <div class="row" style="margin-bottom: 10px;">
-                                <div class="col-8 text-left">
+                                <div class="col-7 text-left">
                                     <table style="border: none;">
                                         <tr>
                                             <td style="font-weight: bold; padding-left: 0.5rem; border: none;">Printed On</td> <!-- Posting Date (Journal) -->
@@ -28,7 +28,7 @@
                                         </tr>
                                     </table>
                                 </div>
-                                <div class="col-4 text-right">
+                                <div class="col-5 text-right">
                                     <table style="border: none;">
                                         <tr>
                                             <td style="font-weight: bold; padding-left: 0.5rem; border: none;">Posted On</td> <!-- Bill Date -->
@@ -49,10 +49,11 @@
 
 
                             <!-- Description Section -->
+                            <br/>
                             <div class="row" style="margin-bottom: 5px;">
                                 <div class="col-12">
-                                    <p style="font-weight: bold; margin-bottom: 2px;">
-                                        <span t-esc="o.narration or ''" style="font-weight: bold;"/>
+                                    <p style="font-weight: bold; margin-bottom: 2px;"><strong>Reference:</strong> 
+                                        <span t-esc="o.ref or '-'" style="font-weight: bold;"/>
                                     </p>
                                 </div>
                             </div>
