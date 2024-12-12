@@ -103,7 +103,7 @@
                                             <!-- Description -->
                                             <td class="text-center" style="font-weight: bold;"><span t-esc="line.description_picking or '-'" style="font-weight: bold;"/></td>
                                             <!-- Qty -->
-                                            <td class="text-center" style="font-weight: bold;"><span t-esc="line.product_qty" style="font-weight: bold;"/></td>
+                                            <td class="text-center" style="font-weight: bold;"><span t-esc="int(line.product_qty)" style="font-weight: bold;"/></td>
                                         </tr>
                                     </t>
                                 </tbody>
