@@ -13,7 +13,7 @@ class Picking(models.Model):
 
     def _get_print_report_name(self):
         return 'DPM Delivery Order - %s' % (self.name)
-    
+
 class StockMove(models.Model):
     _inherit = "stock.move"
 
@@ -21,6 +21,8 @@ class StockMove(models.Model):
 
     @api.depends('picking_id')
     def _compute_line_no(self):
-        for picking in self.mapped('picking_id'):
-            for index, line in enumerate(picking.move_ids, start=1):
-                line.line_no = index
+        all_pickings = self.mapped('picking_id')
+        for picking in all_pickings:
+            ordered_moves = picking.move_ids.sorted('id')
+            for index, move in enumerate(ordered_moves, start=1):
+                move.line_no = index
