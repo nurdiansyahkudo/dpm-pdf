@@ -8,8 +8,8 @@
             model="sale.order"
             string="DPM Sales Order"
             report_type="qweb-pdf"
-            name="custom_pdf.dpm_sales_order_template"
-            file="custom_pdf.dpm_sales_order_template"
+            name="custom_report.dpm_sales_order_template"
+            file="custom_report.dpm_sales_order_template"
             print_report_name="'DPM Sales Order - %s' % (object.name)"
         />
 
@@ -17,8 +17,8 @@
             <field name="name">Print Sales Order</field>
             <field name="model">sale.order</field>
             <field name="report_type">qweb-pdf</field>
-            <field name="report_name">custom_pdf.dpm_sales_order_template</field>
-            <field name="report_file">custom_pdf.dpm_sales_order_template</field>
+            <field name="report_name">custom_report.dpm_sales_order_template</field>
+            <field name="report_file">custom_report.dpm_sales_order_template</field>
             <field name="print_report_name">(object.get_print_report_name())</field>
             <field name="attachment"/>
             <field name="binding_model_id" ref="sale.model_sale_order"/>
