@@ -12,14 +12,14 @@ class SaleOrder(models.Model):
   @api.depends('order_line.product_uom_qty')
   def _compute_total_qty(self):
       for order in self:
-          total = sum(line.product_uom_qty for line in order.order_line)
-          order.total_qty = total
+          total_qty = sum(line.product_uom_qty for line in order.order_line)
+          order.total_qty = total_qty
 
   @api.depends('order_line.qty_delivered')
   def _compute_total_qty(self):
       for order in self:
-          total = sum(line.qty_delivered for line in order.order_line)
-          order.total_qty_delivered = total
+          total_delivered = sum(line.qty_delivered for line in order.order_line)
+          order.total_qty_delivered = total_delivered
 
 class SaleOrderLine(models.Model):
   _inherit = "sale.order.line"
