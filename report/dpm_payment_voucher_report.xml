@@ -7,16 +7,16 @@
           model="account.move"
           string="Print Payment Voucher"
           report_type="qweb-pdf"
-          name="custom_report.dpm_payment_voucher_template"
-          file="custom_report.dpm_payment_voucher_template"
+          name="custom_pdf.dpm_payment_voucher_template"
+          file="custom_pdf.dpm_payment_voucher_template"
           print_report_name="'DPM Payment Voucher - %s' % (object.name)"
         />
 
         <record id="action_report_payment_voucher_dpm" model="ir.actions.report">
             <field name="name">Payment Voucher</field>
             <field name="model">account.move</field>
-            <field name="report_name">custom_report.dpm_payment_voucher_template</field>
-            <field name="report_file">custom_report.dpm_payment_voucher_template</field>
+            <field name="report_name">custom_pdf.dpm_payment_voucher_template</field>
+            <field name="report_file">custom_pdf.dpm_payment_voucher_template</field>
             <field name="print_report_name">(object.get_payment_voucher_print_report_name())</field>
             <field name="attachment"/>
             <field name="report_type">qweb-pdf</field>
