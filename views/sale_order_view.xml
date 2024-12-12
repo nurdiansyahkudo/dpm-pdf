@@ -11,9 +11,6 @@
             <xpath expr="//field[@name='note']" position="before">
                 <field name="total_qty" string="Total Quantity"/>
             </xpath>
-            <xpath expr="//field[@name='total_qty']" position="after">
-                <field name="total_qty_delivered" string="Total Quantity Delivered"/>
-            </xpath>
         </field>
     </record>
 </odoo>
