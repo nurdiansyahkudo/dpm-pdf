@@ -16,7 +16,7 @@ class SaleOrder(models.Model):
           order.total_qty = total_qty
 
   @api.depends('order_line.qty_delivered')
-  def _compute_total_qty(self):
+  def _compute_total_qty_delivered(self):
       for order in self:
           total_delivered = sum(line.qty_delivered for line in order.order_line)
           order.total_qty_delivered = total_delivered
