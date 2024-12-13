@@ -4,6 +4,7 @@ class PurchaseOrder(models.Model):
     _inherit = "purchase.order"
 
     total_qty = fields.Float(string="Total Quantity", compute="_compute_total_qty", store=True)
+    partner_id = fields.Many2one('res.partner', string='Vendor', required=True, change_default=True, tracking=True, check_company=True, help="You can find a vendor by its Name, TIN, Email or Internal Reference.", domain=[('is_company', '=', True)])
 
     def get_print_report_name(self):
         return 'DPM Purchase Order - %s' % (self.name)
