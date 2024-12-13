@@ -4,7 +4,17 @@ class SaleOrder(models.Model):
   _inherit = "sale.order"
 
   total_qty = fields.Integer(string="Total Quantity", compute="_compute_total_qty", store=True)
-  
+  partner_id = fields.Many2one(
+        comodel_name='res.partner',
+        string="Customer",
+        required=True, 
+        change_default=True, 
+        index=True,
+        tracking=1,
+        check_company=True,
+        domain=[('is_company', '=', True)]
+   )
+
 
   def get_print_report_name(self):
       return 'DPM Sales Order - %s' % (self.name)
