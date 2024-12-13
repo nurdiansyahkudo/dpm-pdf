@@ -3,15 +3,16 @@ from odoo import models, fields, api
 class SaleOrder(models.Model):
   _inherit = "sale.order"
 
-  total_qty = fields.Float(string="Total Quantity", compute="_compute_total_qty", store=True)
+  total_qty = fields.Integer(string="Total Quantity", compute="_compute_total_qty", store=True)
+  
 
   def get_print_report_name(self):
       return 'DPM Sales Order - %s' % (self.name)
   
-  @api.depends('order_line.qty_to_invoice')
+  @api.depends('order_line.product_uom_qty')
   def _compute_total_qty(self):
       for order in self:
-          total = sum(line.qty_to_invoice for line in order.order_line)
+          total = sum(line.product_uom_qty for line in order.order_line)
           order.total_qty = total
 
 class SaleOrderLine(models.Model):

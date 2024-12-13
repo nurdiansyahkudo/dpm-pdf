@@ -4,12 +4,21 @@
         <field name="model">sale.order</field>
         <field name="inherit_id" ref="sale.view_order_form"/>
         <field name="arch" type="xml">
+
+            
+            <xpath expr="//group[@name='partner_details']/field[@name='partner_id']" position="replace">
+                <field name="partner_id"
+                       widget="res_partner_many2one"
+                       context="{'res_partner_search_mode': 'customer', 'show_address': 1, 'show_vat': True, 'is_company': True}"
+                       placeholder="Type to find a customer..." readonly="state in ['cancel', 'sale']"/>
+            </xpath>
+            
             <xpath expr="//field[@name='order_line']/tree/field[@name='product_id']" position="before">
                 <field name="line_no"/>
             </xpath>
             
             <xpath expr="//field[@name='note']" position="before">
-                <field name="total_qty" string="Total Quantity"/>
+                <field name="total_qty"/>
             </xpath>
         </field>
     </record>
