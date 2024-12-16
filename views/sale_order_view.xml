@@ -17,7 +17,8 @@
             </xpath>
             
             <xpath expr="//field[@name='note']" position="before">
-                <field name="total_qty" string="Total Quantity"/>
+                <label for="total_qty" string="Total Quantity"/>
+                <field name="total_qty"/>
             </xpath>
         </field>
     </record>
