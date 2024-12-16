@@ -29,10 +29,16 @@ class StockMove(models.Model):
     quantity = fields.Integer(
         'Quantity', compute='_compute_quantity', digits='Product Unit of Measure', inverse='_set_quantity', store=True)
 
+    # @api.depends('picking_id')
+    # def _compute_line_no(self):
+    #     all_pickings = self.mapped('picking_id')
+    #     for picking in all_pickings:
+    #         ordered_moves = picking.move_ids.sorted('id')
+    #         for index, move in enumerate(ordered_moves, start=1):
+    #             move.line_no = index
+
     @api.depends('picking_id')
     def _compute_line_no(self):
-        all_pickings = self.mapped('picking_id')
-        for picking in all_pickings:
-            ordered_moves = picking.move_ids.sorted('id')
-            for index, move in enumerate(ordered_moves, start=1):
+        for record in self:
+            for index, move in enumerate(record.picking_id.move_ids, start=1):
                 move.line_no = index
