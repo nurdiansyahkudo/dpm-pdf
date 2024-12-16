@@ -3,7 +3,7 @@ from odoo import models, fields, api
 class SaleOrder(models.Model):
   _inherit = "sale.order"
 
-  total_qty = fields.Integer(string="Total Quantity", compute="_compute_total_qty", store=True)
+  total_qty = fields.Integer(compute="_compute_total_qty", store=True)
   partner_id = fields.Many2one(
         comodel_name='res.partner',
         string="Customer",
