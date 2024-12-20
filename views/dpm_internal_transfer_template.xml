@@ -51,11 +51,12 @@
                                     </table>
                                 </div>
                                 <div class="col-4 text-right">
+                                    <p style="font-weight: bold; margin-bottom: 2px; margin-left: 20px;"><span t-esc="o.partner_id.name or ''" style="font-weight: bold;"/></p>
                                     <p style="font-weight: bold; margin-bottom: 2px; margin-left: 20px;">
-                                      <span t-esc="o.company_id.street or ''" style="font-weight: bold;"/><br/>
-                                      <span t-esc="o.company_id.street2 or ''" style="font-weight: bold;"/><br/>
-                                      <span t-esc="o.company_id.city or ''" style="font-weight: bold;"/><span>, </span>
-                                      <span t-esc="o.company_id.country_id.name or ''" style="font-weight: bold;"/>
+                                      <span t-esc="o.partner_id.street or ''" style="font-weight: bold;"/><br/>
+                                      <span t-esc="o.partner_id.street2 or ''" style="font-weight: bold;"/><br/>
+                                      <span t-esc="o.partner_id.city or ''" style="font-weight: bold;"/><span>, </span>
+                                      <span t-esc="o.partner_id.country_id.name or ''" style="font-weight: bold;"/>
                                     </p>
                                 </div>
                             </div>
