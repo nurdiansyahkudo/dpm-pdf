@@ -36,12 +36,12 @@
                                         <tr>
                                             <td style="font-weight: bold; padding-left: 0.5rem; border: none;">From W/H</td>
                                             <td style="font-weight: bold; padding-left: 1rem; border: none;"> : </td>
-                                            <td style="font-weight: bold; padding-left: 1rem; padding-right: 1rem; border: none;"><span t-esc="o.location_id" /></td>
+                                            <td style="font-weight: bold; padding-left: 1rem; padding-right: 1rem; border: none;"><span t-esc="o.location_id.name" /></td>
                                         </tr>
                                         <tr>
                                             <td style="font-weight: bold; padding-left: 0.5rem; border: none;">To WHS</td>
                                             <td style="font-weight: bold; padding-left: 1rem; border: none;"> : </td>
-                                            <td style="font-weight: bold; padding-left: 1rem; padding-right: 1rem; border: none;"><span t-esc="o.location_dest_id" /></td>
+                                            <td style="font-weight: bold; padding-left: 1rem; padding-right: 1rem; border: none;"><span t-esc="o.location_dest_id.name" /></td>
                                         </tr>
                                         <!-- <tr>
                                             <td style="font-weight: bold; padding-left: 0.5rem; border: none;">Salesman</td>
