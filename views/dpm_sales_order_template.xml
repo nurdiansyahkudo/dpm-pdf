@@ -99,7 +99,7 @@
                                             <!-- Description -->
                                             <td class="text-center" style="font-weight: bold;"><span t-esc="line.name or ''" style="font-weight: bold;"/></td>
                                             <!-- Qty -->
-                                            <td class="text-center" style="font-weight: bold;"><span t-esc="line.qty_to_invoice" style="font-weight: bold;"/></td>
+                                            <td class="text-center" style="font-weight: bold;"><span t-esc="line.product_uom_qty" style="font-weight: bold;"/></td>
                                         </tr>
                                     </t>
                                 </tbody>
@@ -109,7 +109,7 @@
                                 <div class="col-6 text-left"></div>
                                 <div class="col-6 text-right">
                                     <p style="margin-bottom: 2px;"><strong>Total Quantity : </strong> 
-                                        <span t-esc="sum(int(line.qty_to_invoice) for line in o.order_line)" style="font-weight: bold;"/>
+                                        <span t-esc="sum(int(line.product_uom_qty) for line in o.order_line)" style="font-weight: bold;"/>
                                     </p>
                                 </div>
                             </div>
