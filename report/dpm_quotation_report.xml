@@ -10,7 +10,7 @@
             report_type="qweb-pdf"
             name="custom_pdf.dpm_quotation_template"
             file="custom_pdf.dpm_quotation_template"
-            print_report_name="'DPM Purchase Order - %s' % (object.name)"
+            print_report_name="'DPM RFQ - %s' % (object.name)"
         />
 
         <record id="action_report_quotation_dpm" model="ir.actions.report">
