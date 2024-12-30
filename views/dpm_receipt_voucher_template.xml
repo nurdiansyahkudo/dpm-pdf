@@ -97,11 +97,11 @@
                                         <td colspan="3"></td>
                                         <td class="text-right" style="font-weight: bold;">
                                             <t t-set="total_debit" t-value="sum(abs(line.debit) for line in o.line_ids)"/>
-                                            <span t-esc="o.currency_id.name + '{:,.2f}'.format(abs(line.amount_currency))"/>
+                                            <span t-esc="o.currency_id.name + '{:,.2f}'.format(abs(o.amount_residual))"/>
                                         </td>
                                         <td class="text-right" style="font-weight: bold;">
                                             <t t-set="total_credit" t-value="sum(abs(line.credit) for line in o.line_ids)"/>
-                                            <span t-esc="o.currency_id.name + '{:,.2f}'.format(abs(line.amount_currency))"/>
+                                            <span t-esc="o.currency_id.name + '{:,.2f}'.format(abs(o.amount_residual))"/>
                                         </td>
                                     </tr>
                                 </tfoot>
