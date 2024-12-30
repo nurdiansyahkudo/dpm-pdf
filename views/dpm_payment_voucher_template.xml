@@ -88,7 +88,7 @@
                                             </td>
                                             <td class="text-right">
                                                 <t t-if="line.credit &gt; 0">
-                                                    <span t-esc="o.currency_id.name + ' ' + '{:,.2f}'.abs(line.credit)"/>
+                                                    <span t-esc="o.currency_id.name + ' ' + '{:,.2f}'.format(line.credit)"/>
                                                 </t>
                                             </td>
                                         </tr>
