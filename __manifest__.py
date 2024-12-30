@@ -11,6 +11,8 @@
         'views/dpm_vendor_bill_template.xml',
         'report/dpm_purchase_order_report.xml',
         'views/dpm_purchase_order_template.xml',
+        'report/dpm_quotation_report.xml',
+        'views/dpm_quotation_template.xml',
         'report/dpm_sales_order_report.xml',
         'views/dpm_sales_order_template.xml',
         'report/dpm_delivery_order_report.xml',

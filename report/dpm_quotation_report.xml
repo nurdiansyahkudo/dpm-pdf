@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Report definition -->
+        <report
+            id="dpm_quotation_report"
+            model="purchase.order"
+            string="DPM RFQ"
+            report_type="qweb-pdf"
+            name="custom_pdf.dpm_quotation_template"
+            file="custom_pdf.dpm_quotation_template"
+            print_report_name="'DPM Purchase Order - %s' % (object.name)"
+        />
+
+        <record id="action_report_quotation_dpm" model="ir.actions.report">
+            <field name="name">Print RFQ</field>
+            <field name="model">purchase.order</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">custom_pdf.dpm_quotation_template</field>
+            <field name="report_file">custom_pdf.dpm_quotation_template</field>
+            <field name="print_report_name">(object.get_print_report_name())</field>
+            <field name="attachment"/>
+            <field name="binding_model_id" ref="purchase.model_purchase_order"/>
+            <field name="binding_type">report</field>
+        </record>
+
+    </data>
+</odoo>
