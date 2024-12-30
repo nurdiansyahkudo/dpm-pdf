@@ -99,11 +99,11 @@
                                         <td colspan="3"></td>
                                         <td class="text-right" style="font-weight: bold;">
                                             <t t-set="total_debit" t-value="sum(line.debit for line in o.line_ids)"/>
-                                            <span t-esc="total_debit" t-options='{"widget": "monetary", "display_currency": o.currency_id.name}'/>
+                                            <span t-esc="total_debit" t-options='{"widget": "monetary", "display_currency": o.currency_id, "symbol": False}'/>
                                         </td>
                                         <td class="text-right" style="font-weight: bold;">
                                             <t t-set="total_credit" t-value="sum(line.credit for line in o.line_ids)"/>
-                                            <span t-esc="total_credit" t-options='{"widget": "monetary", "display_currency": o.currency_id.name}'/>
+                                            <span t-esc="total_credit" t-options='{"widget": "monetary", "display_currency": o.currency_id, "symbol": False}'/>
                                         </td>
                                     </tr>
                                 </tfoot>
