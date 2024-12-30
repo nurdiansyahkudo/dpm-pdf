@@ -81,7 +81,7 @@
                                 <tbody>
                                     <!-- Initialize a counter -->
                                     <t t-set="counter" t-value="0"/>
-                                    <t t-foreach="o.order_line" t-as="line">
+                                    <t t-foreach="      e" t-as="line">
                                         <!-- Increment the counter -->
                                         <t t-set="counter" t-value="counter + 1"/>
                                         <tr>
@@ -90,14 +90,14 @@
                                             <td class="text-center" style="font-weight: bold;"><span t-esc="line.product_id.name or 'No Brand - Model'" style="font-weight: bold;"/></td>
                                             <!-- Color -->
                                             <td class="text-center" style="font-weight: bold;">
-                                                <span t-esc="', '.join(line.product_id.product_tmpl_id.attribute_line_ids.filtered(lambda x: x.attribute_id.name == 'Color').value_ids.mapped('name')) or 'No Color'" style="font-weight: bold;"/>
+                                                <span t-esc="', '.join( .product_id.product_tmpl_id.attribute_line_ids.filtered(lambda x: x.attribute_id.name == 'Color').value_ids.mapped('name')) or 'No Color'" style="font-weight: bold;"/>
                                             </td>
                                             <!-- Size -->
                                             <td class="text-center" style="font-weight: bold;">
                                                 <span t-esc="', '.join(line.product_id.product_tmpl_id.attribute_line_ids.filtered(lambda x: x.attribute_id.name == 'Size').value_ids.mapped('name')) or 'No Size'" style="font-weight: bold;"/>
                                             </td>
                                             <!-- Description -->
-                                            <td class="text-center" style="font-weight: bold;"><span t-esc="line.name or ''" style="font-weight: bold;"/></td>
+                                            <td class="text-center" style="font-weight: bold;"><span t-esc="line.    or ''" style="font-weight: bold;"/></td>
                                             <!-- Qty -->
                                             <td class="text-center" style="font-weight: bold;"><span t-esc="int(line.product_uom_qty)" style="font-weight: bold;"/></td>
                                         </tr>
