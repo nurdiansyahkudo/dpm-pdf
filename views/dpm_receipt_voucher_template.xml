@@ -81,13 +81,12 @@
                                             </td>
                                             <td class="text-right">
                                                 <t t-if="line.debit &gt; 0">
-                                                    <span t-esc="line.debit" t-options='{"widget": "monetary", "display_currency": o.currency_id, "symbol": False}'/>
-                                                    <span t-esc="o.currency_id.name + ' ' + '{:,.2f}'.format(line.debit)"/>
+                                                    <span t-esc="o.currency_id.name + '{:,.2f}'.format(line.debit)"/>
                                                 </t>
                                             </td>
                                             <td class="text-right">
                                                 <t t-if="line.credit &gt; 0">
-                                                    <span t-esc="o.currency_id.name + ' ' + '{:,.2f}'.format(line.credit)"/>
+                                                    <span t-esc="o.currency_id.name + '{:,.2f}'.format(line.credit)"/>
                                                 </t>
                                             </td>
                                         </tr>
@@ -98,11 +97,11 @@
                                         <td colspan="3"></td>
                                         <td class="text-right" style="font-weight: bold;">
                                             <t t-set="total_debit" t-value="sum(line.debit for line in o.line_ids)"/>
-                                            <span t-esc="total_debit" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                                            <span t-esc="o.currency_id.name + '{:,.2f}'.format(total_debit)"/>
                                         </td>
                                         <td class="text-right" style="font-weight: bold;">
                                             <t t-set="total_credit" t-value="sum(line.credit for line in o.line_ids)"/>
-                                            <span t-esc="total_credit" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                                            <span t-esc="o.currency_id.name + '{:,.2f}'.format(total_credit)"/>
                                         </td>
                                     </tr>
                                 </tfoot>
