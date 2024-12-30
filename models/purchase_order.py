@@ -8,6 +8,8 @@ class PurchaseOrder(models.Model):
 
     def get_print_report_name(self):
         return 'DPM Purchase Order - %s' % (self.name)
+    def get_print_rfq_name(self):
+        return 'DPM Purchase Order - %s' % (self.name)
 
     @api.depends('order_line.product_qty')
     def _compute_total_qty(self):
