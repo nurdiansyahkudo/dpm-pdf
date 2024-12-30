@@ -82,13 +82,12 @@
                                             <td class="text-right">
                                                 <t t-if="line.debit &gt; 0">
                                                     <span t-esc="o.currency_id.name"/>
-                                                    <span t-esc="line.debit" t-options='{"widget": "monetary", "display_currency": False}'/>
+                                                    <span t-esc="line.debit" t-options='{"widget": "monetary", "display_currency": o.currency_id, "symbol": False}'/>
                                                 </t>
                                             </td>
                                             <td class="text-right">
                                                 <t t-if="line.credit &gt; 0">
-                                                    <span t-esc="o.currency_id.name"/>
-                                                    <span t-esc="abs(line.credit)" t-options='{"widget": "monetary", "display_currency": False}'/>
+                                                    <span t-esc="abs(line.credit)" t-options='{"widget": "monetary", "display_currency": o.currency_id, "symbol": False}'/>
                                                 </t>
                                             </td>
                                         </tr>
