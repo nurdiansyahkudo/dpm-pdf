@@ -17,6 +17,8 @@
         'views/dpm_sales_order_template.xml',
         'report/dpm_delivery_order_report.xml',
         'views/dpm_delivery_order_template.xml',
+        'report/dpm_do_validate_report.xml',
+        'views/dpm_do_validate_template.xml',
         'report/dpm_good_receipt_report.xml',
         'views/dpm_good_receipt_template.xml',
         'report/dpm_payment_voucher_report.xml',
