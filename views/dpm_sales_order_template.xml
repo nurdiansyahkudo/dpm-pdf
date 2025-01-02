@@ -97,7 +97,7 @@
                                                 <span t-esc="', '.join(line.product_id.product_tmpl_id.attribute_line_ids.filtered(lambda x: x.attribute_id.name == 'Size').value_ids.mapped('name')) or 'No Size'" style="font-weight: bold;"/>
                                             </td>
                                             <!-- Description -->
-                                            <td class="text-center" style="font-weight: bold;"><span t-esc="line.    or ''" style="font-weight: bold;"/></td>
+                                            <td class="text-center" style="font-weight: bold;"><span t-esc="line.name or ''" style="font-weight: bold;"/></td>
                                             <!-- Qty -->
                                             <td class="text-center" style="font-weight: bold;"><span t-esc="int(line.product_uom_qty)" style="font-weight: bold;"/></td>
                                         </tr>
