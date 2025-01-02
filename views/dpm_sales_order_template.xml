@@ -90,7 +90,7 @@
                                             <td class="text-center" style="font-weight: bold;"><span t-esc="line.product_id.name or 'No Brand - Model'" style="font-weight: bold;"/></td>
                                             <!-- Color -->
                                             <td class="text-center" style="font-weight: bold;">
-                                                <span t-esc="', '.join( .product_id.product_tmpl_id.attribute_line_ids.filtered(lambda x: x.attribute_id.name == 'Color').value_ids.mapped('name')) or 'No Color'" style="font-weight: bold;"/>
+                                                <span t-esc="', '.join(line.product_id.product_tmpl_id.attribute_line_ids.filtered(lambda x: x.attribute_id.name == 'Color').value_ids.mapped('name')) or 'No Color'" style="font-weight: bold;"/>
                                             </td>
                                             <!-- Size -->
                                             <td class="text-center" style="font-weight: bold;">
