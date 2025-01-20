@@ -6,9 +6,9 @@
             <field name="arch" type="xml">
                 <!-- Mengganti tampilan label move_type dengan move_type_label -->
                 <xpath expr="//group[@id='header_right_group']/field[@name='invoice_date']" position="after">
-                <label for="custom_invoice_date" string="Invoice Date" style="font-weight:bold;" invisible="move_type != 'entry'"/>
-                <field name="custom_invoice_date" nolabel="1" options="{'warn_future': true}" invisible="move_type != 'entry'" readonly="state != 'draft'" on_change="1" field_id="custom_invoice_date_0"/>
-            </xpath>
+                    <label for="custom_invoice_date" string="Invoice Date" style="font-weight:bold;" invisible="move_type != 'entry'"/>
+                    <field name="custom_invoice_date" nolabel="1" options="{'warn_future': true}" invisible="move_type != 'entry'" readonly="state != 'draft'" on_change="1" field_id="custom_invoice_date_0"/>
+                </xpath>
             </field>
         </record>
 </odoo>
