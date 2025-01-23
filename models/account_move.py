@@ -30,6 +30,9 @@ class AccountMove(models.Model):
       def get_receipt_voucher_print_report_name(self):
             return 'DPM Receipt Voucher - %s' % (self.name)
       
+      def get_journal_entry_print_report_name(self):
+            return 'DPM Journal Entry - %s' % (self.name)
+      
       @api.depends('invoice_line_ids.quantity')
       def _compute_total_qty(self):
             for move in self:
