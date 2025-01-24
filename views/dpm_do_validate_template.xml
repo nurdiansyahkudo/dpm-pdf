@@ -85,7 +85,7 @@
                                 <tbody>
                                     <!-- Initialize a counter -->
                                     <t t-set="counter" t-value="0"/>
-                                    <t t-foreach="o.move_ids.filtered(lambda l: l.product_qty >= 1)" t-as="line">
+                                    <t t-foreach="o.move_ids.filtered(lambda l: l.quantity >= 1)" t-as="line">
                                         <!-- Increment the counter -->
                                         <t t-set="counter" t-value="counter + 1"/>
                                         <tr>
@@ -103,7 +103,7 @@
                                             <!-- Description -->
                                             <td class="text-center" style="font-weight: bold;"><span t-esc="line.description_picking or '-'" style="font-weight: bold;"/></td>
                                             <!-- Qty -->
-                                            <td class="text-center" style="font-weight: bold;"><span t-esc="int(line.product_qty)" style="font-weight: bold;"/></td>
+                                            <td class="text-center" style="font-weight: bold;"><span t-esc="int(line.quantity)" style="font-weight: bold;"/></td>
                                         </tr>
                                     </t>
                                 </tbody>
@@ -113,7 +113,7 @@
                                 <div class="col-6 text-left"></div>
                                 <div class="col-6 text-right">
                                     <p style="margin-bottom: 2px;"><strong>Total Quantity : </strong> 
-                                        <span t-esc="sum(int(line.product_qty) for line in o.move_ids)" style="font-weight: bold;"/>
+                                        <span t-esc="sum(int(line.quantity) for line in o.move_ids)" style="font-weight: bold;"/>
                                     </p>
                                 </div>
                             </div>
