@@ -14,7 +14,7 @@
 
             <!-- Remove Create and Edit -->
             <xpath expr="//field[@name='order_line']/tree/field[@name='product_id']" position="replace">
-                <field name="product_id" readonly="state in ('purchase', 'to approve', 'done', 'cancel')" required="not display_type" width="35%" context="{'partner_id': parent.partner_id, 'quantity': product_qty, 'company_id': parent.company_id, 'use_partner_name': False}" force_save="1" domain="[('purchase_ok', '=', True)]" options="{'no_create': True}" on_change="1" can_create="False" can_write="True"/>
+                <field name="product_id" readonly="state in ('purchase', 'to approve', 'done', 'cancel')" required="not display_type" width="35%" context="{'partner_id': parent.partner_id, 'quantity': product_qty, 'company_id': parent.company_id, 'use_partner_name': False}" force_save="1" domain="[('purchase_ok', '=', True)]" options="{'no_create': True}"/>
             </xpath>
 
             <xpath expr="//field[@name='order_line']/tree/field[@name='product_id']" position="before">
