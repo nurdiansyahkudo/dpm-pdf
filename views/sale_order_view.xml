@@ -20,9 +20,28 @@
             <xpath expr="//field[@name='partner_id']" position="attributes">
                 <attribute name="options">{'no_create': True}</attribute>
             </xpath>
-            
-            <xpath expr="//field[@name='order_line']/tree/field[@name='product_id']" position="attributes">
-                <attribute name="options">{'no_create': True}</attribute>
+
+            <xpath expr="//field[@name='order_line']/tree/field[@name='product_id']" position="replace">
+                <field
+                    name="product_id"
+                    readonly="not product_updatable"
+                    required="not display_type"
+                    force_save="1"
+                    context="{
+                        'partner_id': parent.partner_id,
+                        'quantity': product_uom_qty,
+                        'pricelist': parent.pricelist_id,
+                        'uom': product_uom,
+                        'company_id': parent.company_id,
+                        'default_lst_price': price_unit,
+                        'default_description_sale': name
+                    }"
+                    options="{
+                        'no_create': True
+                    }"
+                    domain="[('sale_ok', '=', True)]"
+                    widget="sol_product_many2one"
+                />
             </xpath>
             
             <xpath expr="//group[@name='note_group']" position="replace">
