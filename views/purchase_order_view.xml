@@ -9,7 +9,20 @@
             </xpath>
 
             <xpath expr="//group/field[@name='partner_id']" position="replace">
-                <field name="partner_id" widget="res_partner_many2one" context="{'res_partner_search_mode': 'supplier', 'show_vat': True, 'is_company': True}" placeholder="Name, TIN, Email, or Reference" readonly="state in ['cancel', 'done', 'purchase']"/>
+                <field name="partner_id" widget="res_partner_many2one" context="{'res_partner_search_mode': 'supplier', 'show_vat': True, 'is_company': True}" placeholder="Name, TIN, Email, or Reference" readonly="state in ['cancel', 'done', 'purchase']" options="{'no_create': True}"/>
+            </xpath>
+
+            <!-- Remove Create and Edit -->
+            <xpath expr="//field[@name='order_line']/tree/field[@name='product_id']" position="replace">
+                <field
+                    name="product_id"
+                    widget="many2one_barcode"
+                    readonly="state in ('purchase', 'to approve', 'done', 'cancel')"
+                    required="not display_type"
+                    width="35%"
+                    context="{'partner_id': parent.partner_id, 'quantity': product_qty, 'company_id': parent.company_id, 'use_partner_name': False}"
+                    force_save="1" domain="[('purchase_ok', '=', True), '|', ('company_id', '=', False), ('company_id', 'parent_of', parent.company_id)]"
+                    options="{'no_create': True}"/>
             </xpath>
 
             <xpath expr="//field[@name='order_line']/tree/field[@name='product_id']" position="before">

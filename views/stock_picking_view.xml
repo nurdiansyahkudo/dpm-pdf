@@ -19,6 +19,15 @@
                     </group>
                 </group>
             </xpath>
+
+            <!-- Remove Create and Edit -->
+            <xpath expr="//field[@name='partner_id']" position="attributes">
+                <attribute name="options">{'no_create': True}</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='move_ids_without_package']/tree/field[@name='product_id']" position="replace">
+                <field name="product_id" context="{'default_detailed_type': 'product'}" required="1" readonly="(state != 'draft' and not additional) or move_lines_count &gt; 0" force_save="1" options="{'no_create': True}"/>
+            </xpath>
         </field>
     </record>
 </odoo>
