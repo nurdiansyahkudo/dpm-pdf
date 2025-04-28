@@ -50,6 +50,7 @@
                                     </table>
                                 </div>
                                 <div class="col-4 text-right">
+                                    <p style="font-weight: bold; margin-bottom: 2px; margin-left: 20px;"><strong>Cust No:</strong> <span t-esc="o.partner_unique_id or ''" style="font-weight: bold;"/></p>
                                     <p style="font-weight: bold; margin-bottom: 2px; margin-left: 20px;"><span t-esc="o.partner_id.name or ''" style="font-weight: bold;"/></p>
                                     <p style="font-weight: bold; margin-bottom: 2px; margin-left: 20px;">
                                       <span t-esc="o.partner_id.street or ''" style="font-weight: bold;"/><br/>

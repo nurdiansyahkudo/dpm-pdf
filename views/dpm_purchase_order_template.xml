@@ -16,6 +16,7 @@
                             <!-- HEADER -->
                             <div class="row" style="margin-bottom: 5px;">
                                 <div class="col-8 text-left">
+                                    <p style="font-weight: bold; margin-bottom: 2px; margin-left: 20px;"><strong>Vendor No:</strong> <span t-esc="o.partner_unique_id or ''" style="font-weight: bold;"/></p>
                                     <p style="font-weight: bold; margin-bottom: 2px;">
                                         <strong>From:</strong>
                                         <p style="font-weight: bold; margin-bottom: 2px; margin-left: 20px;"><span t-esc="o.partner_id.name or ''" style="font-weight: bold;"/></p>
