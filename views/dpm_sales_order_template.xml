@@ -3,37 +3,36 @@
     <data>
         <!-- Template QWeb -->
         <template id="dpm_sales_order_template">
-            <t t-call="web.external_layout">
-                <t t-foreach="docs" t-as="o">
-                    <!-- Language and Page Information in Header -->
-                    <div class="row">
-                        <div class="text-center">
-                            <span style="font-weight: bold; font-size: 125%;"><strong>SALES ORDER</strong></span>
-                        </div>
-                    </div>
-                    <br/>
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
                     <main>
                         <div class="page" style="padding: 10px;">
-                            <!-- HEADER -->
+                            <!-- Title Section -->
+                            <div class="row">
+                                <div class="text-center">
+                                    <span style="font-weight: bold; font-size: 125%;"><strong>SALES ORDER</strong></span>
+                                </div>
+                            </div>
+                            <br/>
+                            <!-- Header Section -->
                             <div class="row">
                                 <div class="col-8 text-left">
                                     <table style="border: none;">
                                         <tr>
-                                            <td style="font-weight: bold; padding-left: 0.5rem; border: none;">No</td>
-                                            <td style="font-weight: bold; padding-left: 1rem; border: none;"> : </td>
-                                            <td style="font-weight: bold; padding-left: 1rem; padding-right: 1rem; border: none;"><span t-esc="o.name" /></td>
+                                            <td style="font-weight: bold; padding-left: 0.5rem;">No</td>
+                                            <td style="font-weight: bold; padding-left: 1rem;"> : </td>
+                                            <td style="font-weight: bold; padding-left: 1rem; padding-right: 1rem;"><span t-esc="o.name"/></td>
                                         </tr>
                                         <tr>
-                                            <td style="font-weight: bold; padding-left: 0.5rem; border: none;">Date</td>
-                                            <td style="font-weight: bold; padding-left: 1rem; border: none;"> : </td>
-                                            <td style="font-weight: bold; padding-left: 1rem; padding-right: 1rem; border: none;"><span t-esc="o.date_order.strftime('%d.%m.%y')" /></td>
+                                            <td style="font-weight: bold; padding-left: 0.5rem;">Date</td>
+                                            <td style="font-weight: bold; padding-left: 1rem;"> : </td>
+                                            <td style="font-weight: bold; padding-left: 1rem; padding-right: 1rem;"><span t-esc="o.date_order.strftime('%d.%m.%y')"/></td>
                                         </tr>
                                         <tr>
-                                            <td style="font-weight: bold; padding-left: 0.5rem; border: none;">Salesman</td>
-                                            <td style="font-weight: bold; padding-left: 1rem; border: none;"> : </td>
-                                            <td style="font-weight: bold; padding-left: 1rem; padding-right: 1rem; border: none;">
-                                                <!-- <span t-esc="o.employee_id.initial or '-'" /> -->
-                                                <t t-foreach="o.employee_id" t-as="employee"> 
+                                            <td style="font-weight: bold; padding-left: 0.5rem;">Salesman</td>
+                                            <td style="font-weight: bold; padding-left: 1rem;"> : </td>
+                                            <td style="font-weight: bold; padding-left: 1rem; padding-right: 1rem;">
+                                                <t t-foreach="o.employee_id" t-as="employee">
                                                     <t t-if="employee != o.employee_id[-1]">
                                                         <span t-esc="employee.initial" /> |
                                                     </t>
@@ -46,28 +45,28 @@
                                     </table>
                                 </div>
                                 <div class="col-4 text-right">
-                                    <p style="font-weight: bold; margin-bottom: 2px; margin-left: 20px;"><strong>Cust No:</strong> <span t-esc="o.partner_id.customer_code or ''" style="font-weight: bold;"/></p>
-                                    <p style="font-weight: bold; margin-bottom: 2px; margin-left: 20px;"><span t-esc="o.partner_id.name or ''" style="font-weight: bold;"/></p>
+                                    <p style="font-weight: bold; margin-bottom: 2px; margin-left: 20px;"><strong>Cust No:</strong> <span t-esc="o.partner_id.customer_code or ''"/></p>
+                                    <p style="font-weight: bold; margin-bottom: 2px; margin-left: 20px;"><span t-esc="o.partner_id.name or ''"/></p>
                                     <p style="font-weight: bold; margin-bottom: 2px; margin-left: 20px;">
-                                      <span t-esc="o.partner_id.street or ''" style="font-weight: bold;"/><br/>
-                                      <span t-esc="o.partner_id.street2 or ''" style="font-weight: bold;"/><br/>
-                                      <span t-esc="o.partner_id.city or ''" style="font-weight: bold;"/><span>, </span>
-                                      <span t-esc="o.partner_id.country_id.name or ''" style="font-weight: bold;"/>
+                                        <span t-esc="o.partner_id.street or ''"/><br/>
+                                        <span t-esc="o.partner_id.street2 or ''"/><br/>
+                                        <span t-esc="o.partner_id.city or ''"/>, <span t-esc="o.partner_id.country_id.name or ''"/>
                                     </p>
                                     <p style="font-weight: bold; margin-bottom: 2px; margin-left: 20px;">
-                                      <strong>Telephone : </strong><span t-esc="o.partner_id.phone or ''" style="font-weight: bold;"/>
+                                        <strong>Telephone : </strong><span t-esc="o.partner_id.phone or ''"/>
                                     </p>
                                 </div>
                             </div>
                             <br/>
+                            <!-- Remarks -->
                             <div class="row" style="margin-bottom: 5px;">
                                 <div class="col-12">
-                                    <p style="font-weight: bold; margin-bottom: 2px;"><strong>Remarks : </strong> 
-                                        <span t-esc="o.note or ''" style="font-weight: bold;"/>
+                                    <p style="font-weight: bold; margin-bottom: 2px;"><strong>Remarks : </strong>
+                                        <span t-esc="o.note or ''"/>
                                     </p>
                                 </div>
                             </div>
-                            <!-- TABLE -->
+                            <!-- Table Section -->
                             <table class="table table-sm table-bordered" style="margin-bottom: 5px;">
                                 <thead>
                                     <tr>
@@ -80,54 +79,48 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <!-- Initialize a counter -->
                                     <t t-set="counter" t-value="0"/>
                                     <t t-foreach="o.order_line" t-as="line">
-                                        <!-- Increment the counter -->
                                         <t t-set="counter" t-value="counter + 1"/>
                                         <tr>
-                                            <td class="text-center" style="font-weight: bold;"><span t-esc="counter" style="font-weight: bold;"/></td>
-                                            <!-- Brand - Model -->
-                                            <td class="text-center" style="font-weight: bold;"><span t-esc="line.product_id.name or 'No Brand - Model'" style="font-weight: bold;"/></td>
-                                            <!-- Color -->
+                                            <td class="text-center" style="font-weight: bold;"><span t-esc="counter"/></td>
+                                            <td class="text-center" style="font-weight: bold;"><span t-esc="line.product_id.name or 'No Brand - Model'"/></td>
                                             <td class="text-center" style="font-weight: bold;">
-                                                <span t-esc="', '.join(line.product_id.product_tmpl_id.attribute_line_ids.filtered(lambda x: x.attribute_id.name == 'Color').value_ids.mapped('name')) or 'No Color'" style="font-weight: bold;"/>
+                                                <span t-esc="', '.join(line.product_id.product_tmpl_id.attribute_line_ids.filtered(lambda x: x.attribute_id.name == 'Color').value_ids.mapped('name')) or 'No Color'"/>
                                             </td>
-                                            <!-- Size -->
                                             <td class="text-center" style="font-weight: bold;">
-                                                <span t-esc="', '.join(line.product_id.product_tmpl_id.attribute_line_ids.filtered(lambda x: x.attribute_id.name == 'Size').value_ids.mapped('name')) or 'No Size'" style="font-weight: bold;"/>
+                                                <span t-esc="', '.join(line.product_id.product_tmpl_id.attribute_line_ids.filtered(lambda x: x.attribute_id.name == 'Size').value_ids.mapped('name')) or 'No Size'"/>
                                             </td>
-                                            <!-- Description -->
-                                            <td class="text-center" style="font-weight: bold;"><span t-esc="line.name or ''" style="font-weight: bold;"/></td>
-                                            <!-- Qty -->
-                                            <td class="text-center" style="font-weight: bold;"><span t-esc="int(line.product_uom_qty)" style="font-weight: bold;"/></td>
+                                            <td class="text-center" style="font-weight: bold;"><span t-esc="line.name or ''"/></td>
+                                            <td class="text-center" style="font-weight: bold;"><span t-esc="int(line.product_uom_qty)"/></td>
                                         </tr>
                                     </t>
                                 </tbody>
                             </table>
-                            <!-- FOOTER -->
-                            <div class="row mt-2 text-right" style="margin-bottom: 5px; text-align: right; margin-right: 20px;">
+                            <!-- Footer Total -->
+                            <div class="row mt-2 text-right" style="margin-bottom: 5px; margin-right: 20px;">
                                 <div class="col-6 text-left"></div>
                                 <div class="col-6 text-right">
-                                    <p style="margin-bottom: 2px;"><strong>Total Quantity : </strong> 
-                                        <span t-esc="sum(int(line.product_uom_qty) for line in o.order_line)" style="font-weight: bold;"/>
+                                    <p style="margin-bottom: 2px;"><strong>Total Quantity : </strong>
+                                        <span t-esc="sum(int(line.product_uom_qty) for line in o.order_line)"/>
                                     </p>
                                 </div>
                             </div>
-                            <!-- Footer yang akan muncul di setiap halaman -->
+                            <!-- Footer Signature -->
                             <footer>
-                              <div style="position: relative; width: 100%; text-align: right; margin-top: 130px; margin-bottom: 10px; margin-right: 20px;">
-                                <strong>Signature</strong>
-                                <span style="border-bottom: 1px solid black; width: 150px; display: inline-block; margin-right: 20px;"></span>
-                                <strong>Date</strong>
-                                <span style="border-bottom: 1px solid black; width: 150px; display: inline-block;"></span>
-                              </div>
+                                <div style="position: relative; width: 100%; text-align: right; margin-top: 130px; margin-bottom: 10px; margin-right: 20px;">
+                                    <strong>Signature</strong>
+                                    <span style="border-bottom: 1px solid black; width: 150px; display: inline-block; margin-right: 20px;"></span>
+                                    <strong>Date</strong>
+                                    <span style="border-bottom: 1px solid black; width: 150px; display: inline-block;"></span>
+                                </div>
                             </footer>
-                        </div>          
+                        </div>
                     </main>
                 </t>
             </t>
         </template>
+
         <template id="report_my_sale_order">
             <t t-call="web.html_container">
                 <t t-call="dpm_sales_order_template" t-lang="lang"/>

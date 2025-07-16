@@ -3,17 +3,17 @@
     <data>
         <!-- Template QWeb -->
         <template id="dpm_delivery_order_template">
-            <t t-call="web.external_layout">
-                <t t-foreach="docs" t-as="o">
-                    <!-- Language and Page Information in Header -->
-                    <div class="row">
-                        <div class="text-center">
-                            <span style="font-weight: bold; font-size: 125%;"><strong>DELIVERY ORDER</strong></span>
-                        </div>
-                    </div>
-                    <br/>
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
                     <main>
                         <div class="page" style="padding: 10px;">
+                            <!-- Language and Page Information in Header -->
+                            <div class="row">
+                                <div class="text-center">
+                                    <span style="font-weight: bold; font-size: 125%;"><strong>DELIVERY ORDER</strong></span>
+                                </div>
+                            </div>
+                            <br/>
                             <!-- HEADER -->
                             <div class="row" style="margin-bottom: 5px;">
                                 <div class="col-8 text-left">
@@ -84,26 +84,19 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <!-- Initialize a counter -->
                                     <t t-set="counter" t-value="0"/>
                                     <t t-foreach="o.move_ids.filtered(lambda l: l.quantity >= 1)" t-as="line">
-                                        <!-- Increment the counter -->
                                         <t t-set="counter" t-value="counter + 1"/>
                                         <tr>
                                             <td class="text-center" style="font-weight: bold;"><span t-esc="counter" style="font-weight: bold;"/></td>
-                                            <!-- Brand - Model -->
                                             <td class="text-center" style="font-weight: bold;"><span t-esc="line.product_id.name or 'No Brand - Model'" style="font-weight: bold;"/></td>
-                                            <!-- Color -->
                                             <td class="text-center" style="font-weight: bold;">
                                                 <span t-esc="', '.join(line.product_id.product_tmpl_id.attribute_line_ids.filtered(lambda x: x.attribute_id.name == 'Color').value_ids.mapped('name')) or '-'" style="font-weight: bold;"/>
                                             </td>
-                                            <!-- Size -->
                                             <td class="text-center" style="font-weight: bold;">
                                                 <span t-esc="', '.join(line.product_id.product_tmpl_id.attribute_line_ids.filtered(lambda x: x.attribute_id.name == 'Size').value_ids.mapped('name')) or '-'" style="font-weight: bold;"/>
                                             </td>
-                                            <!-- Description -->
                                             <td class="text-center" style="font-weight: bold;"><span t-esc="line.description_picking or '-'" style="font-weight: bold;"/></td>
-                                            <!-- Qty -->
                                             <td class="text-center" style="font-weight: bold;"><span t-esc="int(line.quantity)" style="font-weight: bold;"/></td>
                                         </tr>
                                     </t>
@@ -118,7 +111,6 @@
                                     </p>
                                 </div>
                             </div>
-                            <!-- Footer yang akan muncul di setiap halaman -->
                             <footer>
                               <div style="position: relative; width: 100%; text-align: right; margin-top: 130px; margin-bottom: 10px; margin-right: 20px;">
                                 <strong>Signature</strong>
@@ -132,6 +124,7 @@
                 </t>
             </t>
         </template>
+
         <template id="report_my_delivery_order">
             <t t-call="web.html_container">
                 <t t-call="dpm_delivery_order_template" t-lang="lang"/>

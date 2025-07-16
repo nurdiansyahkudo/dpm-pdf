@@ -3,59 +3,56 @@
     <data>
         <!-- Template QWeb -->
         <template id="dpm_receipt_voucher_template">
-            <t t-call="web.external_layout">
-                <t t-foreach="docs" t-as="o">
-                    <!-- Title Section -->
-                    <div class="row" style="margin-bottom: 5px;">
-                        <div class="text-center">
-                            <span style="font-weight: bold; font-size: 125%;"><strong>RECEIPT VOUCHER</strong></span>
-                        </div>
-                    </div>
-                    <br/>
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
                     <main>
-                        <div class="page" style="padding: 10px;"> 
+                        <div class="page" style="padding: 10px;">
+                            <!-- Title Section -->
+                            <div class="row" style="margin-bottom: 5px;">
+                                <div class="text-center">
+                                    <span style="font-weight: bold; font-size: 125%;"><strong>RECEIPT VOUCHER</strong></span>
+                                </div>
+                            </div>
+
                             <!-- Header Section -->
                             <div class="row" style="margin-bottom: 10px;">
                                 <div class="col-7 text-left">
                                     <table style="border: none;">
                                         <tr>
-                                            <td style="font-weight: bold; padding-left: 0.5rem; border: none;">Printed On</td> <!-- Posting Date (Journal) -->
+                                            <td style="font-weight: bold; padding-left: 0.5rem; border: none;">Printed On</td>
                                             <td style="font-weight: bold; padding-left: 1rem; border: none;"> : </td>
-                                            <!-- <td style="font-weight: bold; padding-left: 1rem;"><span t-esc="o.custom_invoice_date.strftime('%d.%m.%y')" /></td> -->
-                                            <td style="font-weight: bold; padding-left: 1rem; padding-right: 1rem; border: none;"><span t-esc="o.date.strftime('%d.%m.%y')" /></td>
+                                            <td style="font-weight: bold; padding-left: 1rem; padding-right: 1rem; border: none;"><span t-esc="o.date.strftime('%d.%m.%y')"/></td>
                                         </tr>
                                     </table>
                                 </div>
                                 <div class="col-5 text-right">
                                     <table style="border: none;">
                                         <tr>
-                                            <td style="font-weight: bold; padding-left: 0.5rem; border: none;">Posted On</td> <!-- Invoice Date -->
+                                            <td style="font-weight: bold; padding-left: 0.5rem; border: none;">Posted On</td>
                                             <td style="font-weight: bold; padding-left: 1rem; border: none;"> : </td>
                                             <td style="font-weight: bold; padding-left: 1rem; padding-right: 1rem; border: none;">
-                                                <span t-if="o.custom_invoice_date" t-esc="o.custom_invoice_date.strftime('%d.%m.%y')" />
+                                                <span t-if="o.custom_invoice_date" t-esc="o.custom_invoice_date.strftime('%d.%m.%y')"/>
                                                 <span t-if="not o.custom_invoice_date">-</span>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td style="font-weight: bold; padding-left: 0.5rem; border: none;">No.</td>
                                             <td style="font-weight: bold; padding-left: 1rem; border: none;"> : </td>
-                                            <td style="font-weight: bold; padding-left: 1rem; padding-right: 1rem; border: none;"><span t-esc="o.name" /></td>
+                                            <td style="font-weight: bold; padding-left: 1rem; padding-right: 1rem; border: none;"><span t-esc="o.name"/></td>
                                         </tr>
                                     </table>
                                 </div>
                             </div>
 
-
                             <!-- Description Section -->
-                            <br/>
                             <div class="row" style="margin-bottom: 5px;">
                                 <div class="col-12">
                                     <p style="font-weight: bold; margin-bottom: 2px;"><strong>Reference:</strong> 
-                                        <span t-esc="o.ref or '-'" style="font-weight: bold;"/>
+                                        <span t-esc="o.ref or '-'"/>
                                     </p>
                                 </div>
                             </div>
-                            <br/>
+
                             <!-- Table Section -->
                             <table class="table table-sm table-bordered">
                                 <thead>
@@ -128,9 +125,9 @@
             </t>
         </template>
 
-        <template id="report_my_payment_voucher">
+        <template id="report_my_receipt_voucher">
             <t t-call="web.html_container">
-                <t t-call="dpm_payment_voucher_template" t-lang="lang"/>
+                <t t-call="dpm_receipt_voucher_template" t-lang="lang"/>
             </t>
         </template>
     </data>
